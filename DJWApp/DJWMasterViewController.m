@@ -30,7 +30,23 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
 
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/jobs" parameters:nil success:nil failure:nil];
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    [refreshControl addTarget:self action:@selector(loadGists) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+
+    [self loadJobs];
+    [self.refreshControl beginRefreshing];
+}
+
+- (void)loadJobs
+{
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/jobs" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        [self.refreshControl endRefreshing];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [self.refreshControl endRefreshing];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An Error Has Occurred" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
