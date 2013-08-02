@@ -26,7 +26,7 @@
     [super viewDidLoad];
 
     UIRefreshControl *refreshControl = [UIRefreshControl new];
-    [refreshControl addTarget:self action:@selector(loadGists) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(loadJobs) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
 
     [self loadJobs];
