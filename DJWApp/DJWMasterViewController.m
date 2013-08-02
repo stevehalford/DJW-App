@@ -29,6 +29,24 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+
+    // Load the public Jobs
+    RKManagedObjectStore *managedObjectStore = [RKManagedObjectStore defaultStore];
+    RKEntityMapping *entityMapping = [RKEntityMapping mappingForEntityForName:@"Job" inManagedObjectStore:managedObjectStore];
+    [entityMapping addAttributeMappingsFromDictionary:@{
+     @"id":             @"jobId",
+     @"title":          @"title",
+     @"description":    @"descriptionText",
+     @"company":        @"company",
+     @"city":           @"city",
+     @"created_on":     @"createdAt"}];
+
+    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:entityMapping pathPattern:@"/jobs" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://djw-api.dev/jobs"]];
+    RKManagedObjectRequestOperation *managedObjectRequestOperation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[ responseDescriptor ]];
+    managedObjectRequestOperation.managedObjectContext = self.managedObjectContext;
+    [[NSOperationQueue currentQueue] addOperation:managedObjectRequestOperation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -216,7 +234,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[object valueForKey:@"title"] description];
 }
 
 @end
