@@ -36,6 +36,7 @@
      @"company":        @"company",
      @"city":           @"city",
      @"created_on":     @"createdAt"}];
+    entityMapping.identificationAttributes = @[ @"jobId" ];
 
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:entityMapping pathPattern:@"/jobs" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 
