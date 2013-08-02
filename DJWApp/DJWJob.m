@@ -20,7 +20,7 @@
 
 - (NSString *)titleText
 {
-    return [self.descriptionText length] ? self.descriptionText : @"(untitled)";
+    return [self.title length] ? self.title : @"(untitled)";
 }
 
 - (NSString *)subtitleText
