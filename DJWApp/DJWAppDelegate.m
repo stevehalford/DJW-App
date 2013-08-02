@@ -23,6 +23,24 @@
     // Set the default store shared instance
     [RKManagedObjectStore setDefaultStore:managedObjectStore];
 
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://djw-api.dev"]];
+    objectManager.managedObjectStore = managedObjectStore;
+
+    [RKObjectManager setSharedManager:objectManager];
+
+    RKEntityMapping *entityMapping = [RKEntityMapping mappingForEntityForName:@"Job" inManagedObjectStore:managedObjectStore];
+    [entityMapping addAttributeMappingsFromDictionary:@{
+     @"id":             @"jobId",
+     @"title":          @"title",
+     @"description":    @"descriptionText",
+     @"company":        @"company",
+     @"city":           @"city",
+     @"created_on":     @"createdAt"}];
+
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:entityMapping pathPattern:@"/jobs" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+
+    [objectManager addResponseDescriptor:responseDescriptor];
+
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     DJWMasterViewController *controller = (DJWMasterViewController *)navigationController.topViewController;
