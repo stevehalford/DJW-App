@@ -208,9 +208,9 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    DJWJob *gist = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = gist.titleText;
-    cell.detailTextLabel.text = gist.subtitleText;
+    DJWJob *job = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = job.titleText;
+    cell.detailTextLabel.text = job.subtitleText;
 }
 
 @end
