@@ -31,7 +31,13 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"descriptionText"] description];
+        //'description' on the end of each line - what does it refer to? I can't seem to use anything else
+        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"title"] description];
+
+        //Can I use the DJWJob subtitleText method here instead of repeating the same code?
+        self.subtitleTextView.text = [[NSString stringWithFormat:@"at %@ in %@", [self.detailItem valueForKey:@"company"], [self.detailItem valueForKey:@"city"]] description];
+
+        self.textView.text = [[self.detailItem valueForKey:@"descriptionText"] description];
     }
 }
 

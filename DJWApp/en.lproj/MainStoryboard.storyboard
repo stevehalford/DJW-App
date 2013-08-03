@@ -76,23 +76,51 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogX-R9-uPj">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="410" id="7Vi-Kh-3OE"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ps0-E9-8P6">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" type="user" id="UNo-Eb-Bk3"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="27" firstAttribute="centerY" secondItem="22" secondAttribute="centerY" type="default" id="7cE-gL-0wv"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
+                            <constraint firstItem="ogX-R9-uPj" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="default" id="3QF-4y-us9"/>
+                            <constraint firstItem="Ps0-E9-8P6" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="user" id="Fi1-mg-4wR"/>
+                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="8" id="KLn-Or-oDG"/>
+                            <constraint firstItem="Ps0-E9-8P6" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="user" id="N1d-X4-iRq"/>
+                            <constraint firstItem="Ps0-E9-8P6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="22" secondAttribute="top" constant="30" type="user" id="QUg-Cu-GdV"/>
+                            <constraint firstItem="ogX-R9-uPj" firstAttribute="top" secondItem="Ps0-E9-8P6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="R6T-EU-mJr"/>
+                            <constraint firstItem="Ps0-E9-8P6" firstAttribute="top" secondItem="27" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YOE-54-Hge"/>
+                            <constraint firstItem="Ps0-E9-8P6" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="user" id="pJD-vO-ruz"/>
+                            <constraint firstItem="ogX-R9-uPj" firstAttribute="bottom" secondItem="22" secondAttribute="bottom" type="default" id="sc7-YW-Anc"/>
+                            <constraint firstItem="ogX-R9-uPj" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="default" id="tgO-zN-87H"/>
+                            <constraint firstItem="Ps0-E9-8P6" firstAttribute="trailing" secondItem="22" secondAttribute="trailing" type="user" id="wEQ-6z-jgB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Job Detail" id="26"/>
                     <connections>
                         <outlet property="detailDescriptionLabel" destination="27" id="28"/>
+                        <outlet property="subtitleTextView" destination="Ps0-E9-8P6" id="jmx-Wy-sXy"/>
+                        <outlet property="textView" destination="ogX-R9-uPj" id="ubP-x1-MoQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -105,6 +133,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DJWDetailViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subtitleTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="DJWMasterViewController" superclassName="UITableViewController">
