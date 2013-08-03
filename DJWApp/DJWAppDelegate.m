@@ -23,7 +23,7 @@
     // Set the default store shared instance
     [RKManagedObjectStore setDefaultStore:managedObjectStore];
 
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://djw-api.dev"]];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://api.designjobswales.co.uk"]];
     objectManager.managedObjectStore = managedObjectStore;
 
     [RKObjectManager setSharedManager:objectManager];
