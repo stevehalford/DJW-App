@@ -25,7 +25,7 @@
 
 - (NSString *)subtitleText
 {
-    return [self.company length] ? [NSString stringWithFormat:@"at %@/ in %@", self.company, self.city] : @"(untitled)";
+    return [self.company length] ? [NSString stringWithFormat:@"at %@ in %@", self.company, self.city] : @"(untitled)";
 }
 
 @end
