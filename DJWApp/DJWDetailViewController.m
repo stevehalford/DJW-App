@@ -31,13 +31,29 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        //'description' on the end of each line - what does it refer to? I can't seem to use anything else
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"title"] description];
+        NSString* htmlString = [NSString stringWithFormat:
+                                @"<html>"
+                                "<head>"
+                                "<style type=\"text/css\">"
+                                "body { font-family:Helvetica; font-size: 14; word-wrap: break-word;}"
+                                "h1 { font-size:18;}"
+                                "h2 { font-size:16; font-weight: normal; color: grey;}"
+                                "</style>"
+                                "</head>"
+                                "<body>"
+                                "<h1>%@</h1>"
+                                "<h2>at %@ in %@</h2>",
+                                [self.detailItem valueForKey:@"title"],
+                                [self.detailItem valueForKey:@"company"],
+                                [self.detailItem valueForKey:@"city"]
+                            ];
 
-        //Can I use the DJWJob subtitleText method here instead of repeating the same code?
-        self.subtitleLabel.text = [[NSString stringWithFormat:@"at %@ in %@", [self.detailItem valueForKey:@"company"], [self.detailItem valueForKey:@"city"]] description];
+        htmlString = [htmlString stringByAppendingString:[self.detailItem valueForKey:@"descriptionText"]];
+        htmlString = [htmlString stringByAppendingString:@"</body></html>"];
 
-        self.textView.text = [[self.detailItem valueForKey:@"descriptionText"] description];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"\r\n"   withString:@"<br />"];
+
+        [_webView loadHTMLString:htmlString baseURL:nil];
     }
 }
 
