@@ -17,6 +17,7 @@
 @dynamic descriptionText;
 @dynamic title;
 @dynamic createdAt;
+@dynamic url;
 
 - (NSString *)titleText
 {

@@ -104,7 +104,7 @@
                             <constraint firstItem="Mak-Mc-Juk" firstAttribute="bottom" secondItem="22" secondAttribute="bottom" type="default" id="qpx-ZR-WrQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Job Details" id="26">
+                    <navigationItem key="navigationItem" title="Details" id="26">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="C61-sa-G9Q">
                             <connections>
                                 <action selector="sharePressed:" destination="21" id="4dK-9J-eqg"/>
