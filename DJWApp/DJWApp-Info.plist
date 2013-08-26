@@ -22,11 +22,11 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.stevehalford.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.stevenhalford.DJWApp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>DesignJobsWales</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -60,7 +60,7 @@
 				<key>Blue</key>
 				<real>0.1924266691725226</real>
 				<key>Green</key>
-				<real>0.6778842141480652</real>
+				<real>0.67788421414806521</real>
 				<key>Red</key>
 				<real>1</real>
 			</dict>

@@ -6,6 +6,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Parse setApplicationId:@"S3wM3xYtC36jbQjFiDTKVixBWXDoTcPWJu2Vbh2P"
+                  clientKey:@"2QBsR6vLDl3s8plMGFQs2CRUXLAqkPd82K27ObTd"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
+
     NSError *error = nil;
     NSURL *modelURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"DJWApp" ofType:@"momd"]];
     // NOTE: Due to an iOS 5 bug, the managed object model returned is immutable.
@@ -48,6 +58,19 @@
     DJWMasterViewController *controller = (DJWMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = managedObjectStore.mainQueueManagedObjectContext;
     return YES;
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 @end
