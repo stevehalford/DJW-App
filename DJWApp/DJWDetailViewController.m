@@ -41,21 +41,24 @@
                                 "<head>"
                                 "<style type=\"text/css\">"
                                 "body { font-family:Helvetica; font-size: 14; word-wrap: break-word;}"
-                                "h1 { font-size:18; margin-bottom: 5; }"
+                                "h1 { font-size:18; margin: 10 0 5; }"
                                 "h2 { font-size:16; font-weight: normal; color: grey; margin-top: 0; }"
                                 ".date { color: grey; font-size: 12; }"
+                                ".apply { text-decoration: none; display: block; color: grey; font-size: 18; margin: 20px 0; }"
                                 "</style>"
                                 "</head>"
                                 "<body>"
                                 "<h1>%@</h1>"
                                 "<h2>at %@ in %@</h2>"
                                 "%@"
+                                "<a class=\"apply\" href=\"%@\">&raquo; View/Apply online</a>"
                                 "<p class=\"date\">Published on %@</p>"
                                 "</body></html>",
                                 [self.detailItem valueForKey:@"title"],
                                 [self.detailItem valueForKey:@"company"],
                                 [self.detailItem valueForKey:@"city"],
                                 [self.detailItem valueForKey:@"descriptionText"],
+                                [self.detailItem valueForKey:@"url"],
                                 dateString
                             ];
 
