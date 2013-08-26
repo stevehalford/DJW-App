@@ -13,4 +13,7 @@
     @property (strong, nonatomic) id detailItem;
 
     @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+    - (IBAction)sharePressed:(id)sender;
+
 @end

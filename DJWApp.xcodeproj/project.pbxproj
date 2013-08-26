@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA19841817CBB0E8004D6770 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA19841717CBB0E8004D6770 /* Social.framework */; };
 		AA692E7717AB9A1D00C1D207 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA692E7617AB9A1D00C1D207 /* UIKit.framework */; };
 		AA692E7917AB9A1D00C1D207 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA692E7817AB9A1D00C1D207 /* Foundation.framework */; };
 		AA692E7B17AB9A1D00C1D207 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA692E7A17AB9A1D00C1D207 /* CoreGraphics.framework */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA19841717CBB0E8004D6770 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AA692E7317AB9A1D00C1D207 /* DJWApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJWApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA692E7617AB9A1D00C1D207 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AA692E7817AB9A1D00C1D207 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA19841817CBB0E8004D6770 /* Social.framework in Frameworks */,
 				AA692E7717AB9A1D00C1D207 /* UIKit.framework in Frameworks */,
 				AA692E7917AB9A1D00C1D207 /* Foundation.framework in Frameworks */,
 				AA692E7B17AB9A1D00C1D207 /* CoreGraphics.framework in Frameworks */,
@@ -104,6 +107,7 @@
 		AA692E6A17AB9A1D00C1D207 = {
 			isa = PBXGroup;
 			children = (
+				AA19841717CBB0E8004D6770 /* Social.framework */,
 				AA692E7E17AB9A1D00C1D207 /* DJWApp */,
 				AA692EA917AB9A1D00C1D207 /* DJWAppTests */,
 				AA692E7517AB9A1D00C1D207 /* Frameworks */,

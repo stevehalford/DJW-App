@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * descriptionText;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) NSString * url;
 
 @property (nonatomic, readonly) NSString *titleText;
 @property (nonatomic, readonly) NSString *subtitleText;

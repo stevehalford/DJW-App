@@ -7,6 +7,7 @@
 //
 
 #import "DJWDetailViewController.h"
+#import <Social/Social.h>
 
 @interface DJWDetailViewController ()
 - (void)configureView;
@@ -54,6 +55,19 @@
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"\r\n"   withString:@"<br />"];
 
         [_webView loadHTMLString:htmlString baseURL:nil];
+    }
+}
+
+- (IBAction)sharePressed:(id)sender {
+    if (NSClassFromString(@"UIActivityViewController")) {
+
+        NSURL *urlStringToShare = [self.detailItem valueForKey:@"url"];
+        NSArray *dataToShare = @[@"Check out this job on DJW", urlStringToShare];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:dataToShare
+                                                                                applicationActivities:nil];
+        [activityVC setValue:@"Check out this job on DJW" forKey:@"subject"];
+
+        [self presentViewController:activityVC animated:YES completion:nil];
     }
 }
 
